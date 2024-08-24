@@ -1,5 +1,5 @@
 const shortId = require('shortid')
-const URL = require('../models/url')
+const URL = require('../models/urlSchema')
 
 function ensureHttpPrefix(receivedURL) {
     if (!receivedURL.startsWith('http://') && !receivedURL.startsWith('https://')) {
@@ -51,7 +51,7 @@ const handleGetAllUrls = async (req, res) =>{
 const handleGetSingleUrl = async (req, res) =>{
     const shortId = req.params.shortId
     await URL.findOne({shortId : shortId })
-    .then((data)=> {console.log("data",data); res.send(data)})
+    .then((data)=> {console.log({message : "data found", shortId : data.shortId, redirectURL : data.redirectURL}); res.send(data)})
     .catch((err)=>{console.log("err", err); res.send(err)})
 }
 

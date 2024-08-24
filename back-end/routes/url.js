@@ -6,7 +6,7 @@ const {handleGenerateNewShortURL,
     handleGetAllUrls,
     handleDeleteUrlById,
     handleDeleteAllUrl
-} = require("../controllers/url")
+} = require("../controllers/urlC")
 
 const router = express.Router()
 
